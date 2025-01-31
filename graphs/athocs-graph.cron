@@ -1,0 +1,9 @@
+
+# athocs graph, last 24h, every 5 mins during daytime
+*/5 7-23 * * * . ~/.profile && cd "$ATHOCS_BASE_DIR/analysis/graphs" && /usr/bin/python3 "24h.py" >>"$ATHOCS_BASE_DIR/log/graph.log" 2>&1
+# athocs graph, last 24h, every 30 mins during night
+*/30 0-6 * * * . ~/.profile && cd "$ATHOCS_BASE_DIR/analysis/graphs" && /usr/bin/python3 "24.py" >>"$ATHOCS_BASE_DIR/log/graph.log" 2>&1
+
+# athocs graph, last 7d, every 15 mins during daytime
+*/15 7-23 * * * . ~/.profile && cd "$ATHOCS_BASE_DIR/analysis/graphs" && /usr/bin/python3 "7d.py" >>"$ATHOCS_BASE_DIR/log/graph.log" 2>&1
+
