@@ -7,5 +7,5 @@ import os
 if __name__ == "__main__":
     base_dir = os.getenv("ATHOCS_BASE_DIR")
     data = load(hours=24)
-    generate(data, f"{base_dir}/graphs/graph-last-24-hours.png", xaxis_locator=mdates.HourLocator(interval=1))
+    generate(data, f"{base_dir}/graphs/last-24h.png", xaxis_locator=mdates.HourLocator(interval=1))
 
