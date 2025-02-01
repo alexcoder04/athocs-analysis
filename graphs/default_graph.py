@@ -2,7 +2,7 @@ import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
 import pandas as pd
 
-def generate(data, out_file, xaxis_locator=mdates.HourLocator(interval=1)):
+def generate(data, out_file, title="Temperature, Humidity, and Pressure in the Last 24 Hours", xaxis_locator=mdates.HourLocator(interval=1)):
     # Create a figure and axis for the plot
     fig, ax1 = plt.subplots(figsize=(12, 6))
 
@@ -26,12 +26,13 @@ def generate(data, out_file, xaxis_locator=mdates.HourLocator(interval=1)):
     ax3.tick_params(axis="y", labelcolor="green")
 
     # Format the x-axis to show month-date hour:minute and display every hour
-    ax1.xaxis.set_major_formatter(mdates.DateFormatter("%m-%d %H:%M"))
+    #ax1.xaxis.set_major_formatter(mdates.DateFormatter("%m-%d %H:%M"))
+    ax1.xaxis.set_major_formatter(mdates.DateFormatter("%H:%M"))
     ax1.xaxis.set_major_locator(xaxis_locator)
     ax1.tick_params("x", rotation=90)
 
     # Add a title and adjust layout
-    plt.title("Temperature, Humidity, and Pressure in the Last 24 Hours")
+    plt.title(title)
     fig.tight_layout()
 
     # Save the plot as an image
