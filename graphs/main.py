@@ -21,18 +21,33 @@ if __name__ == "__main__":
     xticks = None
     title_interval = None
     preprocess = None
-    match args.interval:
-        case "1d":
-            if args.average: hours = 7 * 24
-            else: hours = 24
-            xticks = 1
-            title_interval = "24 Hours"
-            preprocess = for_1d
-        case "7d":
-            hours = 7 * 24
-            xticks = 4
-            title_interval = "7 Days (smoothed)"
-            preprocess = for_7d
+
+    if args.interval == "1d":
+        if args.average: hours = 7 * 24
+        else: hours = 24
+        xticks = 1
+        title_interval = "24 Hours"
+        preprocess = for_1d
+
+    if args.interval == "7d":
+        hours = 7 * 24
+        xticks = 4
+        title_interval = "7 Days (smoothed)"
+        preprocess = for_7d
+
+# we can't use this for now because of debians ancient packages
+#    match args.interval:
+#        case "1d":
+#            if args.average: hours = 7 * 24
+#            else: hours = 24
+#            xticks = 1
+#            title_interval = "24 Hours"
+#            preprocess = for_1d
+#        case "7d":
+#            hours = 7 * 24
+#            xticks = 4
+#            title_interval = "7 Days (smoothed)"
+#            preprocess = for_7d
 
     try:
         data = load(args.api_host, args.station, hours=hours)

@@ -1,14 +1,14 @@
 
 # athocs graph, last 24h, every 5 mins during daytime
-*/5 9-23 * * * . ~/.profile && cd "$ATHOCS_BASE_DIR/analysis/graphs" && ./main.py --station "RPIZ-ALEX" --interval "1d" >>"$ATHOCS_BASE_DIR/log/graph.log" 2>&1
+*/5 9-23 * * * . ~/.profile && cd "$ATHOCS_BASE_DIR/analysis/graphs" && ./main.py --output-dir "$ATHOCS_BASE_DIR/graphs" --station "RPIZ-ALEX" --interval "1d" >>"$ATHOCS_BASE_DIR/log/graph.log" 2>&1
 # athocs graph, last 24h, every hour during night
-0 0-8 * * * . ~/.profile && cd "$ATHOCS_BASE_DIR/analysis/graphs" && ./main.py --station "RPIZ-ALEX" --interval "1d" >>"$ATHOCS_BASE_DIR/log/graph.log" 2>&1
+0 0-8 * * * . ~/.profile && cd "$ATHOCS_BASE_DIR/analysis/graphs" && ./main.py --output-dir "$ATHOCS_BASE_DIR/graphs" --station "RPIZ-ALEX" --interval "1d" >>"$ATHOCS_BASE_DIR/log/graph.log" 2>&1
 
 # athocs graph, last 24h with average, every 5 mins during daytime
-*/5 9-23 * * * . ~/.profile && cd "$ATHOCS_BASE_DIR/analysis/graphs" && ./main.py --station "RPIZ-ALEX" --interval "1d" --average >>"$ATHOCS_BASE_DIR/log/graph.log" 2>&1
+*/5 9-23 * * * . ~/.profile && cd "$ATHOCS_BASE_DIR/analysis/graphs" && ./main.py --output-dir "$ATHOCS_BASE_DIR/graphs" --station "RPIZ-ALEX" --interval "1d" --average >>"$ATHOCS_BASE_DIR/log/graph.log" 2>&1
 # athocs graph, last 24h with average, every hour during night
-0 0-8 * * * . ~/.profile && cd "$ATHOCS_BASE_DIR/analysis/graphs" && ./main.py --station "RPIZ-ALEX" --interval "1d" --average >>"$ATHOCS_BASE_DIR/log/graph.log" 2>&1
+0 0-8 * * * . ~/.profile && cd "$ATHOCS_BASE_DIR/analysis/graphs" && ./main.py --output-dir "$ATHOCS_BASE_DIR/graphs" --station "RPIZ-ALEX" --interval "1d" --average >>"$ATHOCS_BASE_DIR/log/graph.log" 2>&1
 
 # athocs graph, last 7d, every 15 mins during daytime
-*/15 9-23 * * * . ~/.profile && cd "$ATHOCS_BASE_DIR/analysis/graphs" && ./main.py --station "RPIZ-ALEX" --interval "7d" >>"$ATHOCS_BASE_DIR/log/graph.log" 2>&1
+*/15 9-23 * * * . ~/.profile && cd "$ATHOCS_BASE_DIR/analysis/graphs" && ./main.py --output-dir "$ATHOCS_BASE_DIR/graphs" --station "RPIZ-ALEX" --interval "7d" >>"$ATHOCS_BASE_DIR/log/graph.log" 2>&1
 
