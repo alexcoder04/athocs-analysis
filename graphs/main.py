@@ -4,6 +4,7 @@ from dataloader import load, get_stations
 from graph import generate
 from preprocessor import for_1d, for_7d
 
+from datetime import datetime
 import argparse
 
 
@@ -41,15 +42,20 @@ if __name__ == "__main__":
         try:
             stations = get_stations(args.api_host)
         except Exception as e:
+            print(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
             print("Loading stations list failed")
             print(e)
+            print()
+            sys.exit(1)
 
     for st in stations:
         try:
             data = load(args.api_host, st, hours=hours)
         except Exception as e:
-            print("Loading the data failed")
+            print(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+            print(f"Loading the data for {st} failed")
             print(e)
+            continue
 
         data, avg_data = preprocess(data, average=args.average)
 
