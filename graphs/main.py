@@ -6,6 +6,7 @@ from preprocessor import for_1d, for_7d
 
 from datetime import datetime
 import argparse
+import sys
 
 
 if __name__ == "__main__":
@@ -61,7 +62,7 @@ if __name__ == "__main__":
 
         if len(data) == 0 and len(avg_data) == 0:
             print("Dataset length is 0, canceling graph generation")
-            return
+            sys.exit(0)
 
         generate(data, avg_data, f"{args.output_dir}/{st}-{args.interval}{'' if not args.average else '-avg'}.png", f"Temperature, Humidity and Pressure in the Last {title_interval}{'' if not args.average else ' (with average of last 7 days)'} at {st}", xticks)
 
