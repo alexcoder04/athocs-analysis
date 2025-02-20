@@ -8,6 +8,8 @@ def for_1d(data, average: bool = False):
 
     data_7d = data
     data_last_day = data[data["timestamp"] > (datetime.now() - timedelta(hours=24))]
+
+    # dont do anything if we dont have data for today
     if len(data_last_day) == 0:
         return None, None
 
