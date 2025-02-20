@@ -59,7 +59,7 @@ if __name__ == "__main__":
 
         data, avg_data = preprocess(data, average=args.average)
 
-        if len(data) == 0 and (avg_data is None or len(avg_data) == 0):
+        if (data is None or len(data) == 0) and (avg_data is None or len(avg_data) == 0):
             print(f"Dataset length is 0 for {st}, canceling graph generation")
             continue
 

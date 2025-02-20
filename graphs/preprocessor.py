@@ -8,6 +8,8 @@ def for_1d(data, average: bool = False):
 
     data_7d = data
     data_last_day = data[data["timestamp"] > (datetime.now() - timedelta(hours=24))]
+    if len(data_last_day) == 0:
+        return None, None
 
     latest_date = data_last_day["timestamp"].max().date()
 
