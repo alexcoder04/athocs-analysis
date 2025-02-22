@@ -8,6 +8,8 @@ def generate(data, data_avg, out_file: str, title: str, xticks: int):
     # next day line
     midnights = pd.date_range(data["timestamp"].min().normalize(), data["timestamp"].max().normalize(), freq="D")
     for m in midnights:
+        if m < data["timestamp"].min():
+            continue
         ax1.axvline(m, color='b', linewidth=1, alpha=0.1)
 
     # temperature
